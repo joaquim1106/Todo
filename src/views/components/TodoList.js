@@ -11,6 +11,7 @@ class TodoList extends React.Component {
 
     constructor(props) {
         super(props);
+
         this.remove = this.remove.bind(this);
         this.update = this.update.bind(this);
     }
@@ -22,24 +23,23 @@ class TodoList extends React.Component {
     remove(id) {
         this.props.onRemove(id);
     }
+
     render() {
         const { props } = this;
         if (props.items.length === 0) {
-            return <div>Não há itens na lista</div>
-        } else {
-            return (
-                <ul className="todo-list">
-                    {
-                        props.items.map(item => <TodoItem
-                            key={item.id}
-                            item={item}
-                            onUpdate={this.update}
-                            onRemove={this.remove}
-                        />)
-                    }
-                </ul>
-            )
+            return <div>No Items</div>
         }
+        return (
+            <ul className="todo-list" >
+                {
+                    props.items.map(item => <TodoItem
+                        onUpdate={this.update}
+                        onRemove={this.remove}
+                        key={item.id}
+                        item={item} />)
+                }
+            </ul>
+        )
     }
 }
 

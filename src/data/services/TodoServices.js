@@ -1,5 +1,5 @@
 import { ApiServices } from './api_services';
-const endpoint = 'todo';
+const endpoint = 'listTodo';
 
 export const TodoServices = {
     list() {
